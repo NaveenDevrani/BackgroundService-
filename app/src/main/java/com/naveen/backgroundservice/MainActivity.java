@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         btn_start_service.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!isMyServiceRunning(mYourService.getClass())) {
+//                if (!isMyServiceRunning(mYourService.getClass())) {
                     startService(mServiceIntent);
-                }
+//                }
             }
         });
         btn_stop_service.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (isMyServiceRunning(mYourService.getClass()))
+//        if (isMyServiceRunning(mYourService.getClass()))
          stopService(mServiceIntent);
     }
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.e(Tag,"onDestory");
-        if (!isMyServiceRunning(mYourService.getClass()))
+//        if (!isMyServiceRunning(mYourService.getClass()))
         startService(mServiceIntent);
     }
 }

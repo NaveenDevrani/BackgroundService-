@@ -1,4 +1,4 @@
-package com.naveen.backgroundservice.services;
+package com.naveen.backgroundservice.receivers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.naveen.backgroundservice.services.BackgroundService;
 
 public class Restarter extends BroadcastReceiver {
     @Override

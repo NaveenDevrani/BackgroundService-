@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <receiver
-            android:name=".services.Restarter"
+            android:name=".receivers.Restarter"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
