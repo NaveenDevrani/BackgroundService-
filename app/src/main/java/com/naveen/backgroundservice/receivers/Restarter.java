@@ -7,7 +7,7 @@ import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.naveen.backgroundservice.services.BackgroundService;
+import com.naveen.backgroundservice.services.InfinityBackgroundService;
 
 public class Restarter extends BroadcastReceiver {
     @Override
@@ -16,9 +16,9 @@ public class Restarter extends BroadcastReceiver {
         Toast.makeText(context, "Service restarted", Toast.LENGTH_SHORT).show();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            context.startForegroundService(new Intent(context, BackgroundService.class));
+            context.startForegroundService(new Intent(context, InfinityBackgroundService.class));
         } else {
-            context.startService(new Intent(context, BackgroundService.class));
+            context.startService(new Intent(context, InfinityBackgroundService.class));
         }
     }
 }

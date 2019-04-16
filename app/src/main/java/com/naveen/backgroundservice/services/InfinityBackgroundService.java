@@ -20,7 +20,7 @@ import com.naveen.backgroundservice.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class BackgroundService  extends Service {
+public class InfinityBackgroundService extends Service {
 
     public int counter=0;
 

@@ -3,19 +3,21 @@ package com.naveen.backgroundservice;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.naveen.backgroundservice.services.BackgroundService;
+import com.naveen.backgroundservice.receivers.DateTimeChangeReceiver;
+import com.naveen.backgroundservice.services.InfinityBackgroundService;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btn_start_service, btn_stop_service;
     Intent mServiceIntent;
-    private BackgroundService mYourService;
+    private InfinityBackgroundService mYourService;
     private String Tag="MainActivity()-->";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,11 @@ public class MainActivity extends AppCompatActivity {
         btn_stop_service=findViewById(R.id.btn_stop_service);
         btn_start_service=findViewById(R.id.btn_start_service);
 
-        mYourService = new BackgroundService();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_TIME_CHANGED);
+        registerReceiver(new DateTimeChangeReceiver(), intentFilter);
+
+        mYourService = new InfinityBackgroundService();
         mServiceIntent = new Intent(this, mYourService.getClass());
 
         btn_start_service.setOnClickListener(new View.OnClickListener() {
